@@ -1,11 +1,22 @@
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
+import {DropdownModule} from "ng2-dropdown";
+
+
+
+
+
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
+
+
+
+
+
 export class BodyComponent implements OnInit {
 
   constructor(private appservice: AppserviceService) { }

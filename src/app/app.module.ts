@@ -9,6 +9,7 @@ import { BodyComponent } from './body/body.component';
 import { SearchComponent } from './search/search.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component';
+import {DropdownModule} from "ng2-dropdown";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component'
   imports: [
    
     BrowserModule,
+    DropdownModule,
     HttpModule,
     JsonpModule,
         RouterModule.forRoot([

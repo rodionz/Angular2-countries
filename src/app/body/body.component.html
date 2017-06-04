@@ -1,3 +1,8 @@
-<p>
-  body works!
-</p>
+<div class="dropdown" dropdown [dropdownToggle]="false" (onOpen)="doSomeActionOnOpen()" (onClose)="doSomeActionOnClose()">
+    <button class="btn btn-primary" dropdown-open>My Heroes</button>
+    <ul class="dropdown-menu">
+        <li><a>Badman</a></li>
+        <li><a>Sadman</a></li>
+        <li><a>Lieman</a></li>
+    </ul>
+</div>
