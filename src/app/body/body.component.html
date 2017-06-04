@@ -1,8 +1,32 @@
-<div class="dropdown" dropdown [dropdownToggle]="false" (onOpen)="doSomeActionOnOpen()" (onClose)="doSomeActionOnClose()">
+<!--<div class="dropdown" dropdown [dropdownToggle]="false" >
     <button class="btn btn-primary" dropdown-open>My Heroes</button>
-    <ul class="dropdown-menu">
-        <li><a>Badman</a></li>
-        <li><a>Sadman</a></li>
-        <li><a>Lieman</a></li>
+    <ul *ngFor="let item of Regions"   class="dropdown-menu">       
+      <li>{{item}}</li>
     </ul>
+</div>
+-->
+
+
+<div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item">Action - 1</button>
+        <button class="dropdown-item">Another Action</button>
+        <button class="dropdown-item">Something else is here</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col text-right">
+    <div ngbDropdown [up]="true" class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Toggle dropup</button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownBasic2">
+        <button class="dropdown-item">Action - 1</button>
+        <button class="dropdown-item">Another Action</button>
+        <button class="dropdown-item">Something else is here</button>
+      </div>
+    </div>
+  </div>
 </div>

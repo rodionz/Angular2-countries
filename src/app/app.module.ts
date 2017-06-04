@@ -10,6 +10,9 @@ import { SearchComponent } from './search/search.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component';
 import {DropdownModule} from "ng2-dropdown";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import {DropdownModule} from "ng2-dropdown";
     JsonpModule,
         RouterModule.forRoot([
            {path : '', component : BodyComponent}
-        ])
+        ]),
+        NgbModule.forRoot()
     
   ],
   providers: [AppserviceService],
