@@ -6,4 +6,6 @@ export class Vehickle {
     languages: any [];
 
     boders: any[];
+
+    region: string = "";
 }
