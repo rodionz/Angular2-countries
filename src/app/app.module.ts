@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { JsonpModule } from '@angular/http';
 import { AppserviceService } from 'app/app.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +19,12 @@ import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component'
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    JsonpModule,
+        RouterModule.forRoot([
+           
+        ])
+    
   ],
   providers: [AppserviceService],
   bootstrap: [AppComponent]
