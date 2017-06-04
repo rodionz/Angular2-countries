@@ -10,7 +10,7 @@ export class AppserviceService {
   constructor(private http:Http) { }
 
 
-getCars(){
+getCountries(){
 
   return this.http.get("https://restcountries.eu/rest/v1/name/is")
       .map(res => res.json());

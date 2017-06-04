@@ -8,16 +8,11 @@ import { AppserviceService } from "app/app.service";
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private appservice : AppserviceService) { }
+  constructor() { }
 
  private cars : {}
 
   ngOnInit() {
 
-    this.appservice.getCars()
-    .subscribe(cars => {
-      this.cars = cars;
-      console.log(this.cars);
-    });
-}
+   };
 }

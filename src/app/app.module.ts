@@ -18,11 +18,12 @@ import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component'
     ListOfCarsComponent
   ],
   imports: [
+   
     BrowserModule,
     HttpModule,
     JsonpModule,
         RouterModule.forRoot([
-           
+           {path : '', component : BodyComponent}
         ])
     
   ],
