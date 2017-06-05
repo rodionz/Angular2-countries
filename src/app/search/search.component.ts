@@ -1,3 +1,4 @@
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Input } from '@angular/core/core';
 import { Component, OnInit } from '@angular/core';
 import { AppserviceService } from "app/app.service";
@@ -11,22 +12,32 @@ import { BodyComponent } from '../body/body.component';
 })
 export class SearchComponent implements OnInit {
 
-items: any[] = [{ name: "archie" }, { name: "jake" }, { name: "richard" }];
 
 
-  constructor(private body: BodyComponent, ) { }
 
- private continents:any[]
+  constructor(private appservice: AppserviceService,private _sanitizer: DomSanitizer ) { }
 
-  subscription :any;
+  allCountries:any[] = []
 
+  
+
+ myresource :any [] = [];
 
   ngOnInit() {
 
-    this.subscription = this.body.dataflow
-    .subscribe((result :any []) => {
-      this.continents = result
+    this.appservice.getCountries() 
+    .subscribe(result => {
+      this.allCountries = result;      
     })
 
    };
+
+
+     valueChanged(newVal) {
+    console.log(this.allCountries);
+  }
+    autocompleListFormatter = (data: any) : SafeHtml => {
+    let html = `<span>${data.name}</span>`;
+    return this._sanitizer.bypassSecurityTrustHtml(html);
+  }
 }

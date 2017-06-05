@@ -1,3 +1,4 @@
+
 import { EventEmitter, Output, Injectable } from '@angular/core';
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,6 +22,7 @@ export class BodyComponent implements OnInit {
 
   constructor(private appservice: AppserviceService) { }
 
+
   private Countries: any[] = [];
 
   private Regions: string[] = [];
@@ -34,8 +36,8 @@ export class BodyComponent implements OnInit {
 
   ngOnInit() {
     this.appservice.getCountries()
-      .subscribe(cars => {
-        this.Countries = cars;
+      .subscribe(result => {
+        this.Countries = result;
 
 
         for (let contry of this.Countries) {
@@ -60,7 +62,7 @@ export class BodyComponent implements OnInit {
        },[]);
 
      
-           //  console.log(this.Languages, this.Regions)
+     
       }
                 
       )

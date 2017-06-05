@@ -1,12 +1,8 @@
-<!--<div>
-  <input type="text" [(ngModel)]="term">
-  <div *ngFor="let item of Regions">
-    <p>
-      {{item}}
-    </p>
+<div class="col-sm-5">
+  <div ng2-auto-complete [source]="allCountries" [list-formatter]="autocompleListFormatter" (valueChanged)="valueChanged($event)" value-property-name="alpha2Code"
+    placeholder="enter text">
+    <input [ngModel]="model1" />
   </div>
+</div><br/>
 
-</div>
---> 
- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<h3>Good bye world</h3>
+
