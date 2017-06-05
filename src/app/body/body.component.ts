@@ -1,8 +1,7 @@
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
-import {DropdownModule} from "ng2-dropdown";
-
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 

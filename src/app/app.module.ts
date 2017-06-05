@@ -11,7 +11,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component';
 import {DropdownModule} from "ng2-dropdown";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
    
     BrowserModule,
     DropdownModule,
+    Ng2SearchPipeModule,
     HttpModule,
     JsonpModule,
         RouterModule.forRoot([

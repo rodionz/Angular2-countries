@@ -26,6 +26,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "ng2-dropdown": "0.0.21",
+    "ng2-search-filter": "^0.3.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
