@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+
+   float: left;
+}
+
+.bodycomponent{
+
+margin-top: 50px;
+}
+.list-group-item{
+   
+    margin-left:10px;
+    margin-right:10px;
+ 
+    width: 250px;
+    height: 150px;
+ 
+}
+
+.cntr{
+    display: inline-block;
+}
