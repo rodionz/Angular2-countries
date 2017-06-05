@@ -1,4 +1,5 @@
 
+
 import { EventEmitter, Output, Injectable } from '@angular/core';
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +24,7 @@ export class BodyComponent implements OnInit {
   constructor(private appservice: AppserviceService) { }
 
 
-  private Countries: any[] = [];
+ private Countries: any[] = [];
 
   private Regions: string[] = [];
 
@@ -33,6 +34,7 @@ export class BodyComponent implements OnInit {
 
   private UnfilteredLanguages: string[] = [];
 
+  @Output() dataflow: EventEmitter<any> = new EventEmitter();  
 
   ngOnInit() {
     this.appservice.getCountries()
@@ -69,6 +71,20 @@ export class BodyComponent implements OnInit {
        this.dataflow.emit(this.Regions)
   }
 
+  clickMessage_1 = '';
 
-   @Output() dataflow: EventEmitter<any> = new EventEmitter();  
+   clickMessage_2 = '';
+
+  onClickLang() {
+    this.clickMessage_1 = 'Lang';
+  };
+
+
+
+
+   onClickMe() {
+  this.clickMessage_1 = 'Me';
+
+    
+  }
 } 

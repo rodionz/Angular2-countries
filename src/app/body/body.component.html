@@ -16,18 +16,21 @@
 
 
 <div class="btn-group" dropdown container="body">
-  <button dropdownToggle type="button" class="btn btn-primary dropdownToggle">
+  <button dropdownToggle type="button" class="btn btn-primary dropdownToggle" (click)="onClickLang()">
    Select Language <span class="caret"></span>
   </button>
+  {{clickMessage_1}}
   <ul *dropdownMenu class="dropdown-menu"   role="menu">
     <div *ngFor="let item of Languages" > 
-    <li role="menuitem"><a class="dropdown-item" href="">{{item}}</a></li>    
+    <li (keyup)="onClickMe()" role="menuitem"><a class="dropdown-item" href="">{{item}}</a></li>   
+     {{clickMessage_2}}
     </div>
   </ul>
 </div>
 <br>
 <br>
-
+<br>
+<br>
 
 <div class="container">
   <div class="row">
