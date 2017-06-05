@@ -25,13 +25,18 @@
     </div>
   </ul>
 </div>
-<br/>
+<br>
+<br>
 
-<ul class="list-inline" *ngFor="let item of Countries" >
 
+<div class="container">
+  <div class="row">
+<ul class="list-inline cntr" *ngFor="let item of Countries" >
   <li class="list-group-item">
     <p>{{item.name}}</p>
     <p>Borders: {{item.borders}}</p>
     <p>Polulation: {{item.population}}</p>
   </li>
 </ul>
+</div>
+</div>
