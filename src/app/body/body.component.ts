@@ -1,13 +1,14 @@
+import { EventEmitter, Output, Injectable } from '@angular/core';
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BsDropdownModule } from 'ngx-bootstrap'
 
 
 
 
 @Component({
-  selector: 'app-body',
+  selector: 'body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
@@ -15,7 +16,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
-
+@Injectable()
 export class BodyComponent implements OnInit {
 
   constructor(private appservice: AppserviceService) { }
@@ -48,25 +49,24 @@ export class BodyComponent implements OnInit {
   },[]);
         }
 
-
         var temparr: any[] = [];
-
         for (let arr of this.UnfilteredLanguages) {
-
           temparr = temparr.concat(arr)
         }
-
 
         this.Languages = temparr.reduce(function(a,b){
     if (a.indexOf(b) < 0 ) a.push(b);
     return a;
        },[]);
 
-        
-             console.log(this.Languages, this.Regions)
+     
+           //  console.log(this.Languages, this.Regions)
       }
                 
       )
+       this.dataflow.emit(this.Regions)
   }
 
+
+   @Output() dataflow: EventEmitter<any> = new EventEmitter();  
 } 

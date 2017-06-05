@@ -8,33 +8,34 @@ import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
 import { SearchComponent } from './search/search.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { ListOfCarsComponent } from './body/list-of-cars/list-of-cars.component';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {DropdownModule} from "ng2-dropdown";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
     SearchComponent,
-    ListOfCarsComponent
+   
   ],
   imports: [
    
     BrowserModule,
+    FormsModule,
     DropdownModule,
     Ng2SearchPipeModule,
     HttpModule,
     JsonpModule,
-        RouterModule.forRoot([
-           {path : '', component : BodyComponent}
-        ]),
-        NgbModule.forRoot()
+       
+        NgbModule.forRoot(),
+        BsDropdownModule.forRoot()
     
   ],
-  providers: [AppserviceService],
+  providers: [AppserviceService,BodyComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
+import { Input } from '@angular/core/core';
 import { Component, OnInit } from '@angular/core';
 import { AppserviceService } from "app/app.service";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BodyComponent } from '../body/body.component';
 
 @Component({
   selector: 'search',
@@ -9,11 +11,22 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+items: any[] = [{ name: "archie" }, { name: "jake" }, { name: "richard" }];
 
- private cars : {}
+
+  constructor(private body: BodyComponent, ) { }
+
+ private continents:any[]
+
+  subscription :any;
+
 
   ngOnInit() {
+
+    this.subscription = this.body.dataflow
+    .subscribe((result :any []) => {
+      this.continents = result
+    })
 
    };
 }
