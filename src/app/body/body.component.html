@@ -3,7 +3,7 @@
 
 
 
-<div class="btn-group" dropdown container="body">
+<div ngbDropdown class="d-inline-block" dropdown container="body">
   <button dropdownToggle type="button" class="btn btn-primary dropdownToggle">
    Select Continent <span class="caret"></span>
   </button>
@@ -15,8 +15,9 @@
 </div>
 
 
-<div class="btn-group" dropdown container="body">
-  <button dropdownToggle type="button" class="btn btn-primary dropdownToggle" (click)="onClickLang()">
+
+  <div  ngbDropdown class="d-inline-block" dropdown container="body">
+   <button dropdownToggle type="button" class="btn btn-primary dropdownToggle" (click)="onClickLang()">
    Select Language <span class="caret"></span>
   </button>
   {{clickMessage_1}}
@@ -26,6 +27,7 @@
      {{clickMessage_2}}
     </div>
   </ul>
+
 </div>
 <br>
 <br>
