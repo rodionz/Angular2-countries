@@ -29,5 +29,9 @@
 
 <ul class="list-inline" *ngFor="let item of Countries" >
 
-  <li class="list-group-item"></li>
+  <li class="list-group-item">
+    <p>{{item.name}}</p>
+    <p>Borders: {{item.borders}}</p>
+    <p>Polulation: {{item.population}}</p>
+  </li>
 </ul>
