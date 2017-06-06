@@ -102,7 +102,17 @@ this.filteredCountries = [];
   };
 
   onClickLang(lang) {
-    console.log(lang);
+   
+this.filteredCountries = [];
+
+    for(let country of this.Countries){
+    if(country.languages.includes(lang)){
+
+      this.filteredCountries.push(country)
+
+    } 
+
+    }
 
   };
 
