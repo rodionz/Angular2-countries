@@ -25,7 +25,11 @@ export class BodyComponent implements OnInit {
   constructor(private appservice: AppserviceService) { }
 
 
+  private filteredCountries: any[] = [];
+
   private Countries: any[] = [];
+
+
 
   private Regions: string[] = [];
 
@@ -44,19 +48,23 @@ export class BodyComponent implements OnInit {
   ngOnInit() {
     this.appservice.getCountries()
       .subscribe(result => {
-        this.Countries = result;
+        this.Countries = result,
+        this.filteredCountries = this.Countries;
 
 
         for (let contry of this.Countries) {
 
           this.UnfilteredRegions.push(contry.subregion)
           this.UnfilteredLanguages.push(contry.languages)
+        }
+
 
           this.Regions = this.UnfilteredRegions.reduce(function (a, b) {
-            if (a.indexOf(b) < 0) a.push(b);
+            if (a.indexOf(b) < 0 && b != "") a.push(b);
             return a;
-          }, []);
-        }
+           }, []);
+
+        
 
         var temparr: any[] = [];
         for (let arr of this.UnfilteredLanguages) {
@@ -76,17 +84,25 @@ export class BodyComponent implements OnInit {
   };
 
 
-  clickMessage_1 = '';
 
-  clickMessage_2 = '';
+    
 
-  onClickMe() {
-    console.log("continent");
+  onClickMe(val) {
 
+
+
+    for(let country of this.Countries){
+    if(country.subregion == val){
+
+
+
+    } 
+
+    }
   };
 
-  onClickLang() {
-    console.log("language");
+  onClickLang(lang) {
+    console.log(lang);
 
   };
 
