@@ -7,17 +7,17 @@
 <div class="col-md-2">
 
  
-  <select [(ngModel)]="simpleValue"> 
-    <option *ngFor="let obj of Regions" (ngModelChange)="onClickMe($event)" [ngValue]="obj" >{{obj}}</option>
+  <select [(ngModel)]="simpleValue" (ngModelChange)="onClickMe()"> 
+    <option *ngFor="let obj of Regions"  [ngValue]="obj"> {{obj}} </option>
   </select>
 
 </div>
-{{clickMessage_1}}
+
 
 <div class="col-md-2 col-md-offset-1">
 
-  <select [(ngModel)]="simpleValue2">
-    <option *ngFor="let lang of Languages"  [ngValue]="lang" >{{lang}}</option>
+  <select [(ngModel)]="simpleValue2" (ngModelChange)="onClickLang()">
+    <option *ngFor="let lang of Languages"   [ngValue]="lang"> {{lang}} </option>
   </select>
 
 

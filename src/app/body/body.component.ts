@@ -3,7 +3,7 @@
 import { EventEmitter, Output, Injectable } from '@angular/core';
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap'
 
 
@@ -23,9 +23,9 @@ import { BsDropdownModule } from 'ngx-bootstrap'
 export class BodyComponent implements OnInit {
 
   constructor(private appservice: AppserviceService) { }
-simpleValue = "";
 
- private Countries: any[] = [];
+
+  private Countries: any[] = [];
 
   private Regions: string[] = [];
 
@@ -35,7 +35,11 @@ simpleValue = "";
 
   private UnfilteredLanguages: string[] = [];
 
-  @Output() dataflow: EventEmitter<any> = new EventEmitter();  
+  simpleValue: number;
+
+  simpleValue2: number;
+
+  @Output() dataflow: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
     this.appservice.getCountries()
@@ -48,10 +52,10 @@ simpleValue = "";
           this.UnfilteredRegions.push(contry.subregion)
           this.UnfilteredLanguages.push(contry.languages)
 
-          this.Regions = this.UnfilteredRegions.reduce(function(a,b){
-    if (a.indexOf(b) < 0 ) a.push(b);
-    return a;
-  },[]);
+          this.Regions = this.UnfilteredRegions.reduce(function (a, b) {
+            if (a.indexOf(b) < 0) a.push(b);
+            return a;
+          }, []);
         }
 
         var temparr: any[] = [];
@@ -59,31 +63,31 @@ simpleValue = "";
           temparr = temparr.concat(arr)
         }
 
-        this.Languages = temparr.reduce(function(a,b){
-    if (a.indexOf(b) < 0 ) a.push(b);
-    return a;
-       },[]);
+        this.Languages = temparr.reduce(function (a, b) {
+          if (a.indexOf(b) < 0) a.push(b);
+          return a;
+        }, []);
 
-     
-     
-      }
-                
-      )
-       this.dataflow.emit(this.Regions)
-  }
+
+
+      })
+    this.dataflow.emit(this.Regions)
+
+  };
+
 
   clickMessage_1 = '';
 
-   clickMessage_2 = '';
+  clickMessage_2 = '';
 
-onClickMe(val) {  
-     this.clickMessage_1 = val;
-    
- };
+  onClickMe() {
+    console.log("continent");
+
+  };
 
   onClickLang() {
-    this.clickMessage_1 = 'Lang';
-    
+    console.log("language");
+
   };
 
 
