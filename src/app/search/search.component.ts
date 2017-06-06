@@ -1,7 +1,7 @@
 import { templateJitUrl } from '@angular/compiler/compiler';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Input } from '@angular/core/core';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Injectable } from '@angular/core';
 import { AppserviceService } from "app/app.service";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BodyComponent } from '../body/body.component';
@@ -11,12 +11,14 @@ import { BodyComponent } from '../body/body.component';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
+
+@Injectable()
 export class SearchComponent implements OnInit {
 
 
+ @Output() searchValueChanged: EventEmitter<any> = new EventEmitter();
 
-
-  constructor(private appservice: AppserviceService, private _sanitizer: DomSanitizer, private body : BodyComponent) { }
+  constructor(private appservice: AppserviceService, private _sanitizer: DomSanitizer) { }
 
   allCountries: any[] = []
 
@@ -45,16 +47,12 @@ export class SearchComponent implements OnInit {
       }
     }
 
-this.body.countryChanged(this.temp)
-      })
+//this.body.countryChanged(this.temp);
+
+this.searchValueChanged.emit(this.temp)
+      });
 
 
-   
-
-   // this.allCountries = this.temp;
-    //this.body.filteredCountries = [];
-
-    //   this.body.filteredCountries.push(newVal);
 
   }
   autocompleListFormatter = (data: any): SafeHtml => {

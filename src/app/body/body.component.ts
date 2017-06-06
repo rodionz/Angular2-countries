@@ -23,7 +23,7 @@ import { BsDropdownModule } from 'ngx-bootstrap'
 @Injectable()
 export class BodyComponent implements OnInit {
 
-  constructor(private appservice: AppserviceService) { }
+  constructor(private appservice: AppserviceService, private search : SearchComponent) { }
 
 
   filteredCountries: any[] = [];
@@ -80,14 +80,30 @@ export class BodyComponent implements OnInit {
 
 
       })
-    this.dataflow.emit(this.Regions);
+
+this.search.searchValueChanged.subscribe(result => {
+
+  this.filteredCountries = result;
+
+   console.log("working");
+})
+
+   // this.dataflow.emit(this.Regions);
 
 
   };
 
 countryChanged(countries){
-this.filteredCountries = countries;
-}
+
+  this.filteredCountries = [];
+   for(let country of countries)
+   {
+     if(true){
+     this.filteredCountries.push(country)
+   }
+   }
+
+};
 
     
 
