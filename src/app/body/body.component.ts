@@ -89,12 +89,12 @@ export class BodyComponent implements OnInit {
 
   onClickMe(val) {
 
-
+this.filteredCountries = [];
 
     for(let country of this.Countries){
     if(country.subregion == val){
 
-
+      this.filteredCountries.push(country)
 
     } 
 
