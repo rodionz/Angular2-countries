@@ -5,12 +5,12 @@
 
 
 <div class="col">
-<div ngbDropdown class="d-inline-block" >
-  <button  id="dropdownBasic1" class="btn btn-primary" dropdownToggle> Select Continent <span class="caret"></span></button>
-  <ul class="dropdown-menu"  aria-labelledby="dropdownBasic1">
-    <li *ngFor="let item of Regions" class="dropdown-item">{{item}}</li>
-  </ul>
-</div>
+
+ 
+  <select [(ngModel)]="simpleValue" dropdownToggle class="btn btn-primary">Select Continent<span class="caret"></span>
+    <option *ngFor="let obj of Regions" [ngValue]="obj" >{{obj}}</option>
+  </select>
+
 </div>
 
 
