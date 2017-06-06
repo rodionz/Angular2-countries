@@ -1,32 +1,28 @@
 
 
+<div class="row">
 
 
 
-<div ngbDropdown class="d-inline-block" dropdown container="body">
-  <button dropdownToggle type="button" class="btn btn-primary dropdownToggle">
-   Select Continent <span class="caret"></span>
-  </button>
-  <ul *dropdownMenu class="dropdown-menu"   role="menu">
-    <div *ngFor="let item of Regions" > 
-    <li role="menuitem"><a class="dropdown-item" href="">{{item}}</a></li>    
-    </div>
+<div class="col">
+<div ngbDropdown class="d-inline-block" >
+  <button  id="dropdownBasic1" class="btn btn-primary" dropdownToggle> Select Continent <span class="caret"></span></button>
+  <ul class="dropdown-menu"  aria-labelledby="dropdownBasic1">
+    <li *ngFor="let item of Regions" class="dropdown-item">{{item}}</li>
   </ul>
+</div>
 </div>
 
 
-
-  <div  ngbDropdown class="d-inline-block" dropdown container="body">
-   <button dropdownToggle type="button" class="btn btn-primary dropdownToggle" (click)="onClickLang()">
-   Select Language <span class="caret"></span>
-  </button>
-  {{clickMessage_1}}
-  <ul *dropdownMenu class="dropdown-menu"   role="menu">
-    <div *ngFor="let item of Languages" > 
-    <li (keyup)="onClickMe()" role="menuitem"><a class="dropdown-item" href="">{{item}}</a></li>   
-     {{clickMessage_2}}
+<div class="col">
+<div ngbDropdown class="d-inline-block" >
+  <button dropdownToggle id="dropdownBasic2" class="btn btn-primary"  (click)="onClickLang()"> Select Language <span class="caret"></span></button> 
+    <div class="dropdown-menu" aria-labelledby="dropdownBasic2" *ngFor="let item of Languages">
+      <button class="dropdown-item">{{item}}</button>      
     </div>
-  </ul>
+</div>
+</div>
+
 
 </div>
 <br>
@@ -36,12 +32,12 @@
 
 <div class="container">
   <div class="row">
-<ul class="list-inline cntr" *ngFor="let item of Countries" >
-  <li class="list-group-item">
-    <p>{{item.name}}</p>
-    <p>Borders: {{item.borders}}</p>
-    <p>Polulation: {{item.population}}</p>
-  </li>
-</ul>
-</div>
+    <ul class="list-inline cntr" *ngFor="let item of Countries">
+      <li class="list-group-item">
+        <p>{{item.name}}</p>
+        <p>Borders: {{item.borders}}</p>
+        <p>Polulation: {{item.population}}</p>
+      </li>
+    </ul>
+  </div>
 </div>
