@@ -1,3 +1,4 @@
+import { SearchComponent } from '../search/search.component';
 
 
 import { EventEmitter, Output, Injectable } from '@angular/core';
@@ -25,9 +26,9 @@ export class BodyComponent implements OnInit {
   constructor(private appservice: AppserviceService) { }
 
 
-  private filteredCountries: any[] = [];
+  filteredCountries: any[] = [];
 
-  private Countries: any[] = [];
+   Countries: any[] = [];
 
 
 
@@ -79,11 +80,14 @@ export class BodyComponent implements OnInit {
 
 
       })
-    this.dataflow.emit(this.Regions)
+    this.dataflow.emit(this.Regions);
+
 
   };
 
-
+countryChanged(countries){
+this.filteredCountries = countries;
+}
 
     
 
