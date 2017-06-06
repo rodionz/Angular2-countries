@@ -35,9 +35,9 @@ export class BodyComponent implements OnInit {
 
   private UnfilteredLanguages: string[] = [];
 
-  simpleValue: number;
+  simpleValue: string;
 
-  simpleValue2: number;
+  simpleValue2: string;
 
   @Output() dataflow: EventEmitter<any> = new EventEmitter();
 

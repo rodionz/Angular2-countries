@@ -8,6 +8,7 @@
 
  
   <select [(ngModel)]="simpleValue" (ngModelChange)="onClickMe()"> 
+    <option value="undefined" disabled selected hidden>Selec Continent</option>
     <option *ngFor="let obj of Regions"  [ngValue]="obj"> {{obj}} </option>
   </select>
 
@@ -17,6 +18,7 @@
 <div class="col-md-2 col-md-offset-1">
 
   <select [(ngModel)]="simpleValue2" (ngModelChange)="onClickLang()">
+    <option value="undefined" disabled selected hidden>Select Language</option>
     <option *ngFor="let lang of Languages"   [ngValue]="lang"> {{lang}} </option>
   </select>
 
