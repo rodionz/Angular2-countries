@@ -23,12 +23,12 @@ import { BsDropdownModule } from 'ngx-bootstrap'
 @Injectable()
 export class BodyComponent implements OnInit {
 
-  constructor(private appservice: AppserviceService, private search : SearchComponent) { }
+  constructor(private appservice: AppserviceService) { }
 
 
   filteredCountries: any[] = [];
 
-   Countries: any[] = [];
+  Countries: any[] = [];
 
 
 
@@ -50,7 +50,7 @@ export class BodyComponent implements OnInit {
     this.appservice.getCountries()
       .subscribe(result => {
         this.Countries = result,
-        this.filteredCountries = this.Countries;
+          this.filteredCountries = this.Countries;
 
 
         for (let contry of this.Countries) {
@@ -60,12 +60,12 @@ export class BodyComponent implements OnInit {
         }
 
 
-          this.Regions = this.UnfilteredRegions.reduce(function (a, b) {
-            if (a.indexOf(b) < 0 && b != "") a.push(b);
-            return a;
-           }, []);
+        this.Regions = this.UnfilteredRegions.reduce(function (a, b) {
+          if (a.indexOf(b) < 0 && b != "") a.push(b);
+          return a;
+        }, []);
 
-        
+
 
         var temparr: any[] = [];
         for (let arr of this.UnfilteredLanguages) {
@@ -81,56 +81,60 @@ export class BodyComponent implements OnInit {
 
       })
 
-this.search.searchValueChanged.subscribe(result => {
 
-  this.filteredCountries = result;
 
-   console.log("working");
-})
-
-   // this.dataflow.emit(this.Regions);
+    // this.dataflow.emit(this.Regions);
 
 
   };
 
-countryChanged(countries){
+  countryChanged(countries) {
 
-  this.filteredCountries = [];
-   for(let country of countries)
-   {
-     if(true){
-     this.filteredCountries.push(country)
-   }
-   }
+    this.filteredCountries = [];
+    for (let country of countries) {
+      if (true) {
+        this.filteredCountries.push(country)
+      }
+    }
 
-};
+  };
 
-    
+
 
   onClickMe(val) {
 
-this.filteredCountries = [];
+    this.filteredCountries = this.Countries;
 
-    for(let country of this.Countries){
-    if(country.subregion == val){
+    let temp = this.filteredCountries;
 
-      this.filteredCountries.push(country)
+    this.filteredCountries = [];
 
-    } 
+
+
+    for (let country of temp) {
+      if (country.subregion == val) {
+
+        this.filteredCountries.push(country)
+
+      }
 
     }
   };
 
   onClickLang(lang) {
-   
-this.filteredCountries = [];
 
-    for(let country of this.Countries){
-    if(country.languages.includes(lang)){
+    this.filteredCountries = this.Countries;
 
-      this.filteredCountries.push(country)
+    let temp = this.filteredCountries;
 
-    } 
+    this.filteredCountries = [];
+
+    for (let country of temp) {
+      if (country.languages.includes(lang)) {
+
+        this.filteredCountries.push(country)
+
+      }
 
     }
 
