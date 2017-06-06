@@ -1,9 +1,9 @@
 
 <header>
 <div class="col-sm-12">
-  <div ng2-auto-complete [source]="allCountries" [list-formatter]="autocompleListFormatter" (valueChanged)="valueChanged($event)" value-property-name="alpha2Code"
-    placeholder="enter text">
-    <input [ngModel]="model1" />
+  <div ng2-auto-complete [source]="allCountries" [list-formatter]="autocompleListFormatter" (valueChanged)="valueChanged($event)" value-property-name="alpha2Code">
+    
+    <input [ngModel]="model1" placeholder="Enter Country" />
   </div>
 </div>
 </header>

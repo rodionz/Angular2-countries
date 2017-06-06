@@ -34,7 +34,7 @@
 
 <div class="container">
   <div class="row">
-    <ul class="list-inline cntr" *ngFor="let item of filteredCountries">
+    <ul class="list-inline cntr" *ngFor="let item of filteredCountries" (searchValueChanged)="searchValueChanged($event)">
       <li class="list-group-item">
         <p>{{item.name}}</p>
         <p>Borders: {{item.borders}}</p>

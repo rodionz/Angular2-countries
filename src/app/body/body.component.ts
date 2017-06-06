@@ -1,7 +1,6 @@
+
 import { SearchComponent } from '../search/search.component';
-
-
-import { EventEmitter, Output, Injectable } from '@angular/core';
+import { EventEmitter, Output, Injectable, Input } from '@angular/core';
 import { AppserviceService } from 'app/app.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -25,6 +24,8 @@ export class BodyComponent implements OnInit {
 
   constructor(private appservice: AppserviceService) { }
 
+
+  @Input() inputFromSearch: any[] = [];
 
   filteredCountries: any[] = [];
 
@@ -82,21 +83,14 @@ export class BodyComponent implements OnInit {
       })
 
 
+this.appservice.searchValueChanged.subscribe(result => {
 
-    // this.dataflow.emit(this.Regions);
+  console.log(result);
 
+  this.filteredCountries = [];
 
-  };
-
-  countryChanged(countries) {
-
-    this.filteredCountries = [];
-    for (let country of countries) {
-      if (true) {
-        this.filteredCountries.push(country)
-      }
-    }
-
+  this.filteredCountries.push(result)
+})
   };
 
 

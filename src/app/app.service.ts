@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { SearchComponent } from './search/search.component';
 import { Http } from '@angular/http';
@@ -9,6 +9,8 @@ export class AppserviceService {
 
   constructor(private http:Http) { }
 
+
+searchValueChanged: EventEmitter<any> = new EventEmitter();
 
 getCountries(){
 

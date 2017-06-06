@@ -12,11 +12,11 @@ import { BodyComponent } from '../body/body.component';
   styleUrls: ['./search.component.css']
 })
 
-@Injectable()
+
 export class SearchComponent implements OnInit {
 
 
- @Output() searchValueChanged: EventEmitter<any> = new EventEmitter();
+  
 
   constructor(private appservice: AppserviceService, private _sanitizer: DomSanitizer) { }
 
@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
 
 
 
-  myresource: any[] = [];
+ 
 
   ngOnInit() {
 
@@ -35,26 +35,16 @@ export class SearchComponent implements OnInit {
 
   };
 
-  temp: any[] = [];
+  
 
   valueChanged(newVal) {
 
- this.appservice.getCountries()
-  .subscribe(result => {       
- for (let obj of result) {
-      if (obj.name == newVal.name) {
-        this.temp.push(obj)
-      }
-    }
-
-//this.body.countryChanged(this.temp);
-
-this.searchValueChanged.emit(this.temp)
-      });
-
-
+ this.appservice.searchValueChanged.emit(newVal)
+  
 
   }
+
+
   autocompleListFormatter = (data: any): SafeHtml => {
     let html = `<span>${data.name}</span>`;
     return this._sanitizer.bypassSecurityTrustHtml(html);
