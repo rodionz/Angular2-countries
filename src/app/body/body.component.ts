@@ -9,6 +9,7 @@ import { BsDropdownModule } from 'ngx-bootstrap'
 
 
 
+
 @Component({
   selector: 'body',
   templateUrl: './body.component.html',
@@ -22,7 +23,7 @@ import { BsDropdownModule } from 'ngx-bootstrap'
 export class BodyComponent implements OnInit {
 
   constructor(private appservice: AppserviceService) { }
-
+simpleValue = "";
 
  private Countries: any[] = [];
 
@@ -75,16 +76,18 @@ export class BodyComponent implements OnInit {
 
    clickMessage_2 = '';
 
+onClickMe(val) {  
+     this.clickMessage_1 = val;
+    
+ };
+
   onClickLang() {
     this.clickMessage_1 = 'Lang';
+    
   };
 
 
 
 
-   onClickMe() {
-  this.clickMessage_1 = 'Me';
 
-    
-  }
 } 

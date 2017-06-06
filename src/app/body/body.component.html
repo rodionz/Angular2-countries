@@ -4,23 +4,23 @@
 
 
 
-<div class="col">
+<div class="col-md-2">
 
  
-  <select [(ngModel)]="simpleValue" dropdownToggle class="btn btn-primary">Select Continent<span class="caret"></span>
-    <option *ngFor="let obj of Regions" [ngValue]="obj" >{{obj}}</option>
+  <select [(ngModel)]="simpleValue"> 
+    <option *ngFor="let obj of Regions" (ngModelChange)="onClickMe($event)" [ngValue]="obj" >{{obj}}</option>
   </select>
 
 </div>
+{{clickMessage_1}}
+
+<div class="col-md-2 col-md-offset-1">
+
+  <select [(ngModel)]="simpleValue2">
+    <option *ngFor="let lang of Languages"  [ngValue]="lang" >{{lang}}</option>
+  </select>
 
 
-<div class="col">
-<div ngbDropdown class="d-inline-block" >
-  <button dropdownToggle id="dropdownBasic2" class="btn btn-primary"  (click)="onClickLang()"> Select Language <span class="caret"></span></button> 
-    <div class="dropdown-menu" aria-labelledby="dropdownBasic2" *ngFor="let item of Languages">
-      <button class="dropdown-item">{{item}}</button>      
-    </div>
-</div>
 </div>
 
 
