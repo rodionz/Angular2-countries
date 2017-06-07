@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
   allCountries: any[] = [];
   
  
-
+  
 
 
  
@@ -37,6 +37,7 @@ export class SearchComponent implements OnInit {
       .subscribe(result => {
         this.allCountries = result;
        
+       console.log(this.allCountries);
       })
 
   };
@@ -54,7 +55,7 @@ this.appservice.countrySelected = true;
 
 
   autocompleListFormatter = (data: any): SafeHtml => {
-    console.log("format")
+   
     let html = `<span>${data.name}</span>`;
     return this._sanitizer.bypassSecurityTrustHtml(html);
   }

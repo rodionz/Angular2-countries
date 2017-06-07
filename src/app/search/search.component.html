@@ -1,23 +1,26 @@
 
 <header>
   <br>
+  <div class="container">
   <div class="row">
 <div class="col-md-3 col-md-offset-1">
  
     
     <input class="form-control"
-    ng2-auto-complete [source]="allCountries"
-    [ngModel]="model1" 
+    ng2-auto-complete 
+    [source]="allCountries"
+    [ngModel]="allCountries.name" 
     placeholder="Enter Country" 
     [list-formatter]="autocompleListFormatter" 
-    (valueChanged)="valueChanged($event)"
-     value-property-name="alpha2Code"
+    (ngModelChange)="valueChanged($event)"
+     value-property-name="name"
      display-property-name="name"
     
     
     />
  
 </div>
+  </div>
   </div>
 </header>
 <br>

@@ -85,11 +85,23 @@ export class BodyComponent implements OnInit {
 
 this.appservice.searchValueChanged.subscribe(result => {
 
+let temp : any[] = [];
+
+for(let contry of this.Countries)
+{
+  if(contry.name.indexOf(result) >=0){
+
+     temp.push(contry);
+
+  }
 
 
-  this.filteredCountries = [];
+}
 
-  this.filteredCountries.push(result)
+
+  this.filteredCountries = temp;
+
+  
 })
   };
 
