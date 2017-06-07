@@ -4,11 +4,11 @@
 
 
 
-<div class="col-md-2">
+<div class="col-md-2 col-md-offset-1">
 
  
   <select  class="form-control" [(ngModel)]="simpleValue" (ngModelChange)="onClickMe($event)"> 
-    <option value="undefined" disabled selected hidden>Selec Continent</option>
+    <option value="undefined" disabled selected hidden>Select Continent</option>
     <option *ngFor="let obj of Regions"  [ngValue]="obj"> {{obj}} </option>
   </select>
 
@@ -37,9 +37,8 @@
     <div class="cntr"
     *ngFor="let item of filteredCountries" 
     (searchValueChanged)="searchValueChanged($event)">
-      <div class=" panel panel-success mypanel hvr-shrink" 
-       >
-        <p>{{item.name}}</p>
+      <div class=" panel panel-success mypanel hvr-shrink" >
+        <p>Country: {{item.name}}</p>
         <p>Borders: {{item.borders}}</p>
         <p>Polulation: {{item.population}}</p>
       </div>
