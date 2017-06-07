@@ -7,7 +7,7 @@
 <div class="col-md-2">
 
  
-  <select [(ngModel)]="simpleValue" (ngModelChange)="onClickMe($event)"> 
+  <select  class="form-control" [(ngModel)]="simpleValue" (ngModelChange)="onClickMe($event)"> 
     <option value="undefined" disabled selected hidden>Selec Continent</option>
     <option *ngFor="let obj of Regions"  [ngValue]="obj"> {{obj}} </option>
   </select>
@@ -17,7 +17,7 @@
 
 <div class="col-md-2 col-md-offset-1">
 
-  <select [(ngModel)]="simpleValue2" (ngModelChange)="onClickLang($event)">
+  <select class="form-control" [(ngModel)]="simpleValue2" (ngModelChange)="onClickLang($event)">
     <option value="undefined" disabled selected hidden>Select Language</option>
     <option *ngFor="let lang of Languages"   [ngValue]="lang"> {{lang}} </option>
   </select>
@@ -34,12 +34,15 @@
 
 <div class="container">
   <div class="row">
-    <ul class="list-inline cntr" *ngFor="let item of filteredCountries" (searchValueChanged)="searchValueChanged($event)">
-      <li class="list-group-item">
+    <div class="cntr"
+    *ngFor="let item of filteredCountries" 
+    (searchValueChanged)="searchValueChanged($event)">
+      <div class=" panel panel-success mypanel hvr-shrink" 
+       >
         <p>{{item.name}}</p>
         <p>Borders: {{item.borders}}</p>
         <p>Polulation: {{item.population}}</p>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>

@@ -18,10 +18,13 @@ export class SearchComponent implements OnInit {
 
   
 
-  constructor(private appservice: AppserviceService, private _sanitizer: DomSanitizer) { }
+  constructor(private appservice: AppserviceService, private _sanitizer: DomSanitizer) { 
+
+    
+  }
 
   allCountries: any[] = [];
-
+  
  
 
 
@@ -38,7 +41,7 @@ export class SearchComponent implements OnInit {
 
   };
 
-  
+
 
   valueChanged(newVal) {
 
@@ -49,7 +52,7 @@ export class SearchComponent implements OnInit {
 
 
   autocompleListFormatter = (data: any): SafeHtml => {
-    console.log(data);
+    console.log("format")
     let html = `<span>${data.name}</span>`;
     return this._sanitizer.bypassSecurityTrustHtml(html);
   }
