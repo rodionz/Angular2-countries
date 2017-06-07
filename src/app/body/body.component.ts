@@ -87,6 +87,9 @@ this.appservice.searchValueChanged.subscribe(result => {
 
 let temp : any[] = [];
 
+console.log(this.Countries)
+
+
 for(let contry of this.Countries)
 {
   if(contry.name.indexOf(result) >=0){
@@ -151,13 +154,13 @@ for(let contry of this.Countries)
 getClass(){
 if(this.appservice.countrySelected == false)
 {
-  console.log('hidden');
+ 
  return 'hidden';
 }
 
 else{
 
-console.log('visible')
+
 return 'visible'
 
 }

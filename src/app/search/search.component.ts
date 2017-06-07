@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
       .subscribe(result => {
         this.allCountries = result;
        
-       console.log(this.allCountries);
+     
       })
 
   };
