@@ -3,7 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Input } from '@angular/core/core';
 import { Component, OnInit, Output, EventEmitter, Injectable } from '@angular/core';
 import { AppserviceService } from "app/app.service";
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { BodyComponent } from '../body/body.component';
 
 @Component({
@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
 
   allCountries: any[] = [];
 
-  alias: any[];
+ 
 
 
 
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
     this.appservice.getCountries()
       .subscribe(result => {
         this.allCountries = result;
-        this.alias = this.allCountries;
+       
       })
 
   };
@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
   
 
   valueChanged(newVal) {
-this.allCountries = this.alias;
+
  this.appservice.searchValueChanged.emit(newVal)
   
 
@@ -49,6 +49,7 @@ this.allCountries = this.alias;
 
 
   autocompleListFormatter = (data: any): SafeHtml => {
+    console.log(data);
     let html = `<span>${data.name}</span>`;
     return this._sanitizer.bypassSecurityTrustHtml(html);
   }
