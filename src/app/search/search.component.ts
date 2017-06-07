@@ -41,10 +41,10 @@ export class SearchComponent implements OnInit {
   
 
   valueChanged(newVal) {
-
+this.allCountries = this.alias;
  this.appservice.searchValueChanged.emit(newVal)
   
-this.allCountries = this.alias;
+
   }
 
 
