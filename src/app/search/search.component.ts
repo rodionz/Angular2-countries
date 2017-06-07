@@ -20,7 +20,9 @@ export class SearchComponent implements OnInit {
 
   constructor(private appservice: AppserviceService, private _sanitizer: DomSanitizer) { }
 
-  allCountries: any[] = []
+  allCountries: any[] = [];
+
+  alias: any[];
 
 
 
@@ -31,6 +33,7 @@ export class SearchComponent implements OnInit {
     this.appservice.getCountries()
       .subscribe(result => {
         this.allCountries = result;
+        this.alias = this.allCountries;
       })
 
   };
@@ -41,7 +44,7 @@ export class SearchComponent implements OnInit {
 
  this.appservice.searchValueChanged.emit(newVal)
   
-
+this.allCountries = this.alias;
   }
 
 
