@@ -12,6 +12,9 @@ export class AppserviceService {
 
 searchValueChanged: EventEmitter<any> = new EventEmitter();
 
+countrySelected : boolean = false;
+
+
 getCountries(){
 
   return this.http.get("https://restcountries.eu/rest/v1/name/is")

@@ -85,7 +85,7 @@ export class BodyComponent implements OnInit {
 
 this.appservice.searchValueChanged.subscribe(result => {
 
-  console.log(result);
+
 
   this.filteredCountries = [];
 
@@ -136,6 +136,20 @@ this.appservice.searchValueChanged.subscribe(result => {
 
 
 
+getClass(){
+if(this.appservice.countrySelected == false)
+{
+  console.log('hidden');
+ return 'hidden';
+}
 
+else{
+
+console.log('visible')
+return 'visible'
+
+}
+
+}
 
 } 

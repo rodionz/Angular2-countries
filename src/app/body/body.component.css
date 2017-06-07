@@ -27,3 +27,13 @@ padding: 20px;
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
 }
+
+.visible{
+
+visibility: visible;
+
+}
+
+.hidden{
+  visibility: hidden;
+}

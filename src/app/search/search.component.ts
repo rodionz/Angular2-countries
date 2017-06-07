@@ -45,6 +45,8 @@ export class SearchComponent implements OnInit {
 
   valueChanged(newVal) {
 
+this.appservice.countrySelected = true;
+
  this.appservice.searchValueChanged.emit(newVal)
   
 
